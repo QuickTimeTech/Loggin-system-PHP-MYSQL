@@ -21,6 +21,7 @@
         <p>Hello, <?php echo htmlspecialchars($username); ?>! You're in the members area.</p>
         <p>Your email: <?php echo htmlspecialchars($email); ?></p>
         <p>Account type: <?php echo htmlspecialchars($account_type); ?></p>
+        <p>Account ID: <?php echo htmlspecialchars($id); ?></p>
     </div>
 
     <!-- Bootstrap JS and dependencies -->
