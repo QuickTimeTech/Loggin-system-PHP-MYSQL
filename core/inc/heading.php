@@ -14,6 +14,7 @@ if (!isset($_SESSION['username'])) {
 $username = $_SESSION['username'];
 $email = $_SESSION['email'];
 $account_type = $_SESSION['account_type'];
+$id = $_SESSION['id'];
 
 include '../config.php';
 ?>
