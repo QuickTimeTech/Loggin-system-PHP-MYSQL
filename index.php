@@ -60,7 +60,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Prepare a SQL statement to select user details
-    $stmt = $conn->prepare("SELECT password, email, account_type, ip FROM users WHERE username=?");
+    $stmt = $conn->prepare("SELECT id, password, email, account_type, ip FROM users WHERE username=?");
     $stmt->bind_param("s", $username);
     $stmt->execute();
     $stmt->store_result();
@@ -68,7 +68,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Check if the username exists in the database
     if ($stmt->num_rows > 0) {
         // Bind the result variables
-        $stmt->bind_result($hashed_password, $email, $account_type, $stored_ip);
+        $stmt->bind_result($id, $hashed_password, $email, $account_type, $stored_ip);
         $stmt->fetch();
 
         // Check if the IP address matches the stored IP address
@@ -78,6 +78,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Verify the password
         } elseif (password_verify($password, $hashed_password)) {
             // Set session variables
+            $_SESSION['id'] = $id;
             $_SESSION['username'] = $username;
             $_SESSION['email'] = $email;
             $_SESSION['account_type'] = $account_type;
@@ -100,6 +101,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $conn->close();
 }
 ?>
+
 
 
 <!DOCTYPE html>
