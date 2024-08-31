@@ -14,3 +14,22 @@ When a POST request is made, the script retrieves the username and password from
 For user authentication, the script prepares a SQL statement to fetch user details (password, email, account type, IP) from the database based on the provided username. If the username exists, it fetches the stored details and checks if the user’s IP address matches the stored IP address. If the IP addresses do not match, it logs the attempt and displays an error message. If the IP addresses match, it verifies the password. If the password is correct, it sets session variables (username, email, account type), logs the successful attempt, and redirects the user to another page. If the password is incorrect, it logs the attempt and displays an error message with the number of remaining attempts.
 Finally, the script closes the prepared statement and the database connection. This code provides a secure login system with IP address verification and limits on login attempts to prevent brute-force attacks.
 
+## Set Up
+
+1. Upload the SQL File: Start by uploading the password-management.sql file to your MySQL database.
+
+
+2. Update Configuration: Next, open the configure.php file and update it with your database information.
+
+
+3. Create Database: Ensure the database is created and the configuration settings in configure.php point to your database.
+
+
+4. Access the Website: Open the website in your web browser. You can log in using the following credentials:
+    - Admin Account: Username: admin, Password: admin
+    - Default User: Username: user, Password: user
+
+
+5. Start Using the Script: Once logged in, you can start using and customizing the script as needed.
+
+
